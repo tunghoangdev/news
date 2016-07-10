@@ -15,27 +15,25 @@ Purchase: http://wrapbootstrap.com
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
-
-
+    <link rel="shortcut icon" href="{!! asset('public/tdev_admin/assets/img/favicon.png') !!}" type="image/x-icon">
     <!--Basic Styles-->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="{!! asset('public/tdev_admin/assets/css/bootstrap.min.css') !!}" rel="stylesheet" />
     <link id="bootstrap-rtl-link" href="" rel="stylesheet" />
-    <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="assets/css/weather-icons.min.css" rel="stylesheet" />
+    <link href="{!! asset('public/tdev_admin/assets/css/font-awesome.min.css') !!}" rel="stylesheet" />
+    <link href="{!! asset('public/tdev_admin/assets/css/weather-icons.min.css') !!}" rel="stylesheet" />
 
     <!--Fonts-->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
     <!--Beyond styles-->
-    <link id="beyond-link" href="assets/css/beyond.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/demo.min.css" rel="stylesheet" />
-    <link href="assets/css/typicons.min.css" rel="stylesheet" />
-    <link href="assets/css/animate.min.css" rel="stylesheet" />
+    <link id="beyond-link" href="{!! asset('public/tdev_admin/assets/css/beyond.min.css') !!}" rel="stylesheet" type="text/css" />
+    <link href="{!! asset('public/tdev_admin/assets/css/demo.min.css') !!}" rel="stylesheet" />
+    <link href="{!! asset('public/tdev_admin/assets/css/typicons.min.css') !!}" rel="stylesheet" />
+    <link href="{!! asset('public/tdev_admin/assets/css/animate.min.css') !!}" rel="stylesheet" />
     <link id="skin-link" href="" rel="stylesheet" type="text/css" />
 
     <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
-    <script src="assets/js/skins.min.js"></script>
+    <script src="{!! asset('public/tdev_admin/assets/js/skins.js') !!}"></script>
 </head>
 <!-- /Head -->
 <!-- Body -->
@@ -53,7 +51,7 @@ Purchase: http://wrapbootstrap.com
             <div class="navbar-header pull-left">
                 <a href="#" class="navbar-brand">
                     <small>
-                        <img src="assets/img/logo.png" alt="" />
+                        <img src="{!! asset('public/tdev_admin/assets/img/logo.png') !!}" alt="" />
                     </small>
                 </a>
             </div>
@@ -378,7 +376,6 @@ Purchase: http://wrapbootstrap.com
 <div class="main-container container-fluid">
     <!-- Page Container -->
     <div class="page-container">
-
         <!-- Page Sidebar -->
         <div class="page-sidebar" id="sidebar">
             <!-- Page Sidebar Header-->
@@ -392,400 +389,50 @@ Purchase: http://wrapbootstrap.com
             <ul class="nav sidebar-menu">
                 <!--Dashboard-->
                 <li class="active">
-                    <a href="index.html">
+                    <a href="#">
                         <i class="menu-icon glyphicon glyphicon-home"></i>
                         <span class="menu-text"> Dashboard </span>
                     </a>
                 </li>
                 <!--Databoxes-->
                 <li>
-                    <a href="databoxes.html">
+                    <a href="#" class="menu-dropdown">
                         <i class="menu-icon glyphicon glyphicon-tasks"></i>
-                        <span class="menu-text"> Data Boxes </span>
-                    </a>
-                </li>
-                <!--Widgets-->
-                <li>
-                    <a href="widgets.html">
-                        <i class="menu-icon fa fa-th"></i>
-                        <span class="menu-text"> Widgets </span>
-                    </a>
-                </li>
-                <!--UI Elements-->
-                <li>
-                    <a href="#" class="menu-dropdown">
-                        <i class="menu-icon fa fa-desktop"></i>
-                        <span class="menu-text"> Elements </span>
-                        <i class="menu-expand"></i>
-                    </a>
-
-                    <ul class="submenu">
-                        <li>
-                            <a href="elements.html">
-                                <span class="menu-text">Basic Elements</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="menu-dropdown">
-                                    <span class="menu-text">
-                                        Icons
-                                    </span>
-                                <i class="menu-expand"></i>
-                            </a>
-
-                            <ul class="submenu">
-                                <li>
-                                    <a href="font-awesome.html">
-                                        <i class="menu-icon fa fa-rocket"></i>
-                                        <span class="menu-text">Font Awesome</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="glyph-icons.html">
-                                        <i class="menu-icon glyphicon glyphicon-stats"></i>
-                                        <span class="menu-text">Glyph Icons</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="typicon.html">
-                                        <i class="menu-icon typcn typcn-location-outline"></i>
-                                        <span class="menu-text"> Typicons</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="weather-icons.html">
-                                        <i class="menu-icon wi wi-hot"></i>
-                                        <span class="menu-text">Weather Icons</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="tabs.html">
-                                <span class="menu-text">Tabs & Accordions</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="alerts.html">
-                                <span class="menu-text">Alerts & Tooltips</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="modals.html">
-                                <span class="menu-text">Modals & Wells</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="buttons.html">
-                                <span class="menu-text">Buttons</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="nestable-list.html">
-                                <span class="menu-text"> Nestable List</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="treeview.html">
-                                <span class="menu-text">Treeview</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <!--Tables-->
-                <li>
-                    <a href="#" class="menu-dropdown">
-                        <i class="menu-icon fa fa-table"></i>
-                        <span class="menu-text"> Tables </span>
-
-                        <i class="menu-expand"></i>
-                    </a>
-
-                    <ul class="submenu">
-                        <li>
-                            <a href="tables-simple.html">
-                                <span class="menu-text">Simple & Responsive</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="tables-data.html">
-                                <span class="menu-text">Data Tables</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <!--Forms-->
-                <li>
-                    <a href="#" class="menu-dropdown">
-                        <i class="menu-icon fa fa-pencil-square-o"></i>
-                        <span class="menu-text"> Forms </span>
-
-                        <i class="menu-expand"></i>
-                    </a>
-
-                    <ul class="submenu">
-                        <li>
-                            <a href="form-layouts.html">
-                                <span class="menu-text">Form Layouts</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="form-inputs.html">
-                                <span class="menu-text">Form Inputs</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="form-pickers.html">
-                                <span class="menu-text">Data Pickers</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="form-wizard.html">
-                                <span class="menu-text">Wizard</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="form-validation.html">
-                                <span class="menu-text">Validation</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="form-editors.html">
-                                <span class="menu-text">Editors</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <!--Charts-->
-                <li>
-                    <a href="#" class="menu-dropdown">
-                        <i class="menu-icon fa fa-bar-chart-o"></i>
-                        <span class="menu-text"> Charts </span>
-
-                        <i class="menu-expand"></i>
-                    </a>
-
-                    <ul class="submenu">
-                        <li>
-                            <a href="flot.html">
-                                <span class="menu-text">Flot Charts</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="morris.html">
-                                <span class="menu-text"> Morris Charts</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="sparkline.html">
-                                <span class="menu-text">Sparkline Charts</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="easypiecharts.html">
-                                <span class="menu-text">Easy Pie Charts</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="chartjs.html">
-                                <span class="menu-text"> ChartJS</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <!--Profile-->
-                <li>
-                    <a href="profile.html">
-                        <i class="menu-icon fa fa-picture-o"></i>
-                        <span class="menu-text">Profile</span>
-                    </a>
-                </li>
-                <!--Mail-->
-                <li>
-                    <a href="#" class="menu-dropdown">
-                        <i class="menu-icon fa fa-envelope-o"></i>
-                        <span class="menu-text"> Mail </span>
-
-                        <i class="menu-expand"></i>
-                    </a>
-
-                    <ul class="submenu">
-                        <li>
-                            <a href="inbox.html">
-                                <span class="menu-text">Inbox</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="message-view.html">
-                                <span class="menu-text">View Message</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="message-compose.html">
-                                <span class="menu-text">Compose Message</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <!--Calendar-->
-                <li>
-                    <a href="calendar.html">
-                        <i class="menu-icon fa fa-calendar"></i>
-                            <span class="menu-text">
-                                Calendar
-                            </span>
-                    </a>
-                </li>
-                <!--Pages-->
-                <li>
-                    <a href="#" class="menu-dropdown">
-                        <i class="menu-icon glyphicon glyphicon-paperclip"></i>
-                        <span class="menu-text"> Pages </span>
-
-                        <i class="menu-expand"></i>
-                    </a>
-                    <ul class="submenu">
-                        <li>
-                            <a href="timeline.html">
-                                <span class="menu-text">Timeline</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="pricing.html">
-                                <span class="menu-text">Pricing Tables</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="invoice.html">
-                                <span class="menu-text">Invoice</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="login.html">
-                                <span class="menu-text">Login</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="register.html">
-                                <span class="menu-text">Register</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="lock.html">
-                                <span class="menu-text">Lock Screen</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="typography.html">
-                                <span class="menu-text"> Typography </span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <!--More Pages-->
-                <li>
-                    <a href="#" class="menu-dropdown">
-                        <i class="menu-icon glyphicon glyphicon-link"></i>
-
-                            <span class="menu-text">
-                                More Pages
-                            </span>
-
-                        <i class="menu-expand"></i>
-                    </a>
-
-                    <ul class="submenu">
-                        <li>
-                            <a href="error-404.html">
-                                <span class="menu-text">Error 404</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="error-500.html">
-                                <span class="menu-text"> Error 500</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="blank.html">
-                                <span class="menu-text">Blank Page</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="grid.html">
-                                <span class="menu-text"> Grid</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="menu-dropdown">
-                                    <span class="menu-text">
-                                        Multi Level Menu
-                                    </span>
-                                <i class="menu-expand"></i>
-                            </a>
-
-                            <ul class="submenu">
-                                <li>
-                                    <a href="#">
-                                        <i class="menu-icon fa fa-camera"></i>
-                                        <span class="menu-text">Level 3</span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#" class="menu-dropdown">
-                                        <i class="menu-icon fa fa-asterisk"></i>
-
-                                            <span class="menu-text">
-                                                Level 4
-                                            </span>
-                                        <i class="menu-expand"></i>
-                                    </a>
-
-                                    <ul class="submenu">
-                                        <li>
-                                            <a href="#">
-                                                <i class="menu-icon fa fa-bolt"></i>
-                                                <span class="menu-text">Some Item</span>
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="#">
-                                                <i class="menu-icon fa fa-bug"></i>
-                                                <span class="menu-text">Another Item</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                            </ul>
-                        </li>
-
-                    </ul>
-                </li>
-                <!--Right to Left-->
-                <li>
-                    <a href="#" class="menu-dropdown">
-                        <i class="menu-icon fa fa-align-right"></i>
-                        <span class="menu-text"> Right to Left </span>
-
+                        <span class="menu-text"> Danh mục sản phẩm </span>
                         <i class="menu-expand"></i>
                     </a>
                     <ul class="submenu">
                         <li>
                             <a>
-                                <span class="menu-text">RTL</span>
-                                <label class="pull-right margin-top-10">
-                                    <input id="rtl-changer" class="checkbox-slider slider-icon colored-primary" type="checkbox">
-                                    <span class="text"></span>
-                                </label>
+                                <span class="menu-text">Danh sách</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index-rtl-ar.html">
+                                <span class="menu-text">Thêm mới</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="index-rtl-fa.html">
+                                <span class="menu-text">Chỉnh sửa</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <!--Widgets-->
+                <!--Right to Left-->
+                <li>
+                    <a href="#" class="menu-dropdown">
+                        <i class="menu-icon fa fa-align-right"></i>
+                        <span class="menu-text"> Right to Left </span>
+                        <i class="menu-expand"></i>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a>
+
                             </a>
                         </li>
                         <li>
@@ -1098,29 +745,29 @@ Purchase: http://wrapbootstrap.com
 </div>
 
 <!--Basic Scripts-->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="{!! asset('public/tdev_admin/assets/js/jquery.min.js') !!}"></script>
+<script src="{!! asset('public/tdev_admin/assets/js/bootstrap.min.js') !!}"></script>
+<script src="{!! asset('public/tdev_admin/assets/js/slimscroll/jquery.slimscroll.min.js') !!}"></script>
 
 <!--Beyond Scripts-->
-<script src="assets/js/beyond.js"></script>
+<script src="{!! asset('public/tdev_admin/assets/js/beyond.min.js') !!}"></script>
 
 
 <!--Page Related Scripts-->
 <!--Sparkline Charts Needed Scripts-->
-<script src="assets/js/charts/sparkline/jquery.sparkline.js"></script>
-<script src="assets/js/charts/sparkline/sparkline-init.js"></script>
+<script src="{!! asset('public/tdev_admin/assets/js/charts/sparkline/jquery.sparkline.js') !!}"></script>
+<script src="{!! asset('public/tdev_admin/assets/js/charts/sparkline/sparkline-init.js') !!}"></script>
 
 <!--Easy Pie Charts Needed Scripts-->
-<script src="assets/js/charts/easypiechart/jquery.easypiechart.js"></script>
-<script src="assets/js/charts/easypiechart/easypiechart-init.js"></script>
+<script src="{!! asset('public/tdev_admin/assets/js/charts/easypiechart/jquery.easypiechart.js') !!}"></script>
+<script src="{!! asset('public/tdev_admin/assets/js/charts/easypiechart/easypiechart-init.js') !!}"></script>
 
 <!--Flot Charts Needed Scripts-->
-<script src="assets/js/charts/flot/jquery.flot.js"></script>
-<script src="assets/js/charts/flot/jquery.flot.resize.js"></script>
-<script src="assets/js/charts/flot/jquery.flot.pie.js"></script>
-<script src="assets/js/charts/flot/jquery.flot.tooltip.js"></script>
-<script src="assets/js/charts/flot/jquery.flot.orderBars.js"></script>
+<script src="{!! asset('public/tdev_admin/assets/js/charts/flot/jquery.flot.js') !!}"></script>
+<script src="{!! asset('public/tdev_admin/assets/js/charts/flot/jquery.flot.resize.js') !!}"></script>
+<script src="{!! asset('public/tdev_admin/assets/js/charts/flot/jquery.flot.pie.js') !!}"></script>
+<script src="{!! asset('public/tdev_admin/assets/js/charts/flot/jquery.flot.tooltip.js') !!}"></script>
+<script src="{!! asset('public/tdev_admin/assets/js/charts/flot/jquery.flot.orderBars.js') !!}"></script>
 
 <script>
     // If you want to draw your charts with Theme colors you must run initiating charts after that current skin is loaded
