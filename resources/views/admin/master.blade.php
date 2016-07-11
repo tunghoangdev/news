@@ -733,7 +733,9 @@ Purchase: http://wrapbootstrap.com
             </div>
             <!-- /Page Header -->
             <!-- Page Body -->
+            <div class="page-body">
                  @yield('content');
+            </div>
             <!-- /Page Body -->
         </div>
         <!-- /Page Content -->

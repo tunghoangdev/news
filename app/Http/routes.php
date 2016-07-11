@@ -17,3 +17,9 @@ Route::get('/', function () {
 Route::get('admin', function () {
     return view('admin.default');
 });
+Route::group(['prefix'=>'admin'], function () {
+    Route::group(['prefix'=>'category'], function () {
+        Route::get('add',['as'=>'admin.category.getAdd','uses'=>'CategoryController@getAdd']);
+        Route::post('add',['as'=>'admin.category.postAdd','uses'=>'CategoryController@postAdd']);
+    });
+});
