@@ -13,19 +13,19 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->increments('pro_id');
-            $table->string('pro_name')->unique();
-            $table->string('pro_alias')->unique();
-            $table->integer('pro_price');
-            $table->text('pro_intro');
-            $table->longText('pro_content');
-            $table->string('pro_images');
-            $table->string('pro_keywords');
-            $table->string('pro_descriptions');
-            $table->integer('pro_userid')->unsigned();
-            $table->foreign('pro_userid')->references('id')->on('users')->onDelete('cascade');
-            $table->integer('pro_catid')->unsigned();
-            $table->foreign('pro_catid')->references('cat_id')->on('categories')->onDelete('cascade');
+            $table->increments('id');
+            $table->string('name')->unique();
+            $table->string('alias')->unique();
+            $table->integer('price');
+            $table->text('intro');
+            $table->longText('content');
+            $table->string('images');
+            $table->string('keywords');
+            $table->string('descriptions');
+            $table->integer('userid')->unsigned();
+            $table->foreign('userid')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('catid')->unsigned();
+            $table->foreign('catid')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }

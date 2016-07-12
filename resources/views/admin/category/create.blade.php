@@ -4,7 +4,7 @@
       <div class="col-lg-8 col-sm-8 col-xs-12">
          <div class="widget">
             <div class="widget-header bordered-bottom bordered-blue">
-               <span class="widget-caption">Thêm mới thể loại</span>
+               <span class="widget-caption">Thêm mới danh mục</span>
             </div>
             <div class="widget-body">
                @if(count($errors) >0)
@@ -20,21 +20,22 @@
                   <form action="{!! route('admin.category.getAdd') !!}" method="post" role="form">
                      <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                      <div class="form-group">
-                        <label for="catname">Tên thể loại</label>
+                        <label for="catname">Tên danh mục</label>
                         <input class="form-control" id="catname"  name="catname" value="" placeholder="Nhập tên thể loại" type="text">
                      </div>
-                     <div class="form-group">
-                        <label for="alias">Alias</label>
-                        <input class="form-control" id="alias" name="alias" placeholder="Nhập Alias" type="text">
-                     </div>
+                     {{--<div class="form-group">--}}
+                        {{--<label for="alias">Alias</label>--}}
+                        {{--<input class="form-control" id="alias" name="alias" placeholder="Nhập Alias" type="text">--}}
+                     {{--</div>--}}
                      <div class="form-group">
                         <label for="alias">Sắp xếp</label>
-                        <input class="form-control" id="alias" name="alias" placeholder="Số thứ tự" type="text">
+                        <input class="form-control" id="order" name="order" placeholder="Số thứ tự" type="text">
                      </div>
                      <div class="form-group">
                         <label for="parentid">Danh mục cha</label>
                         <select name="parentid" id="parentid" class="form-control">
-                           <option value="">--Chọn danh mục cha--</option>
+                           <option value="0">--Chọn danh mục cha--</option>
+                           <?php cat_parent($parent);?>
                         </select>
                      </div>
                      <div class="form-group">

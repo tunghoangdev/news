@@ -19,7 +19,11 @@ Route::get('admin', function () {
 });
 Route::group(['prefix'=>'admin'], function () {
     Route::group(['prefix'=>'category'], function () {
+        Route::get('list',['as'=>'admin.category.list','uses'=>'CategoryController@getList']);
         Route::get('add',['as'=>'admin.category.getAdd','uses'=>'CategoryController@getAdd']);
         Route::post('add',['as'=>'admin.category.postAdd','uses'=>'CategoryController@postAdd']);
+        Route::get('edit/{cat_id}',['as'=>'admin.category.getEdit','uses'=>'CategoryController@getEdit']);
+        Route::post('edit/{cat_id}',['as'=>'admin.category.postEdit','uses'=>'CategoryController@postEdit']);
+        Route::get('delete/{cat_id}',['as'=>'admin.category.getDelete','uses'=>'CategoryController@getDelete']);
     });
 });

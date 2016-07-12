@@ -30,6 +30,7 @@ Purchase: http://wrapbootstrap.com
     <link href="{!! asset('public/tdev_admin/assets/css/demo.min.css') !!}" rel="stylesheet" />
     <link href="{!! asset('public/tdev_admin/assets/css/typicons.min.css') !!}" rel="stylesheet" />
     <link href="{!! asset('public/tdev_admin/assets/css/animate.min.css') !!}" rel="stylesheet" />
+    <link href="{!! asset('public/tdev_admin/assets/css/dataTables.bootstrap.css') !!}" rel="stylesheet" />
     <link id="skin-link" href="" rel="stylesheet" type="text/css" />
 
     <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
@@ -734,6 +735,15 @@ Purchase: http://wrapbootstrap.com
             <!-- /Page Header -->
             <!-- Page Body -->
             <div class="page-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        @if(Session::has('flash_msg'))
+                            <div class="alert alert-{!! Session::get('flash_type') !!}">
+                                {!! Session::get('flash_msg') !!}
+                            </div>
+                        @endif
+                    </div>
+                </div>
                  @yield('content');
             </div>
             <!-- /Page Body -->
@@ -770,6 +780,7 @@ Purchase: http://wrapbootstrap.com
 <script src="{!! asset('public/tdev_admin/assets/js/charts/flot/jquery.flot.pie.js') !!}"></script>
 <script src="{!! asset('public/tdev_admin/assets/js/charts/flot/jquery.flot.tooltip.js') !!}"></script>
 <script src="{!! asset('public/tdev_admin/assets/js/charts/flot/jquery.flot.orderBars.js') !!}"></script>
+<script src="{!! asset('public/tdev_admin/assets/js/myscript.js') !!}"></script>
 
 <script>
     // If you want to draw your charts with Theme colors you must run initiating charts after that current skin is loaded
@@ -1019,7 +1030,6 @@ Purchase: http://wrapbootstrap.com
             for (var i = 0; i < realTimedata2.length; ++i) {
                 res.push([i, realTimedata2[i]]);
             }
-
             return res;
         }
         // Set up the control widget
@@ -1049,7 +1059,6 @@ Purchase: http://wrapbootstrap.com
             },
             colors: ['#eee', themeprimary],
         });
-
         function update() {
 
             plot.setData(getSeriesObj());
@@ -1058,11 +1067,8 @@ Purchase: http://wrapbootstrap.com
             setTimeout(update, updateInterval);
         }
         update();
-
-
         //-------------------------Initiates Easy Pie Chart instances in page--------------------//
         InitiateEasyPieChart.init();
-
         //-------------------------Initiates Sparkline Chart instances in page------------------//
         InitiateSparklineCharts.init();
     });

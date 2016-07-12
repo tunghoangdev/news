@@ -31,7 +31,7 @@ class CategoryRequest extends Request
     {
         return [
             'catname.required'=>'Bạn vui lòng nhập tên thể loại',
-            'catname.unique'=>'Tên thể loại đã tồn tại'
+            'catname.unique'=>'Tên thể loại đã tồn tại',
         ];
     }
 }
