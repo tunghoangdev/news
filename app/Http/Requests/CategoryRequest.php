@@ -24,13 +24,13 @@ class CategoryRequest extends Request
     public function rules()
     {
         return [
-            'catname'=>'require|unique:categories,cat_name',
+            'catname'=>'required|unique:categories,cat_name',
         ];
     }
     public  function messages()
     {
         return [
-            'catname.require'=>'Bạn vui lòng nhập tên thể loại',
+            'catname.required'=>'Bạn vui lòng nhập tên thể loại',
             'catname.unique'=>'Tên thể loại đã tồn tại'
         ];
     }

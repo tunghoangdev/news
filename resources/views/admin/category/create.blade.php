@@ -21,7 +21,7 @@
                      <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                      <div class="form-group">
                         <label for="catname">Tên thể loại</label>
-                        <input class="form-control" id="catname"  name="catname" placeholder="Nhập tên thể loại" type="text">
+                        <input class="form-control" id="catname"  name="catname" value="" placeholder="Nhập tên thể loại" type="text">
                      </div>
                      <div class="form-group">
                         <label for="alias">Alias</label>
