@@ -66,21 +66,21 @@
                             <tbody>
                             @foreach($catlist as $item)
                             <tr role="row" class="odd">
-                                <td class="sorting_1">{!! $item->cat_name !!}</td>
+                                <td class="sorting_1">{!! $item->name !!}</td>
                                 <td>
-                                    @if($item->cat_parentid == 0)
+                                    @if($item->parentid == 0)
                                         {!! "Danh mục gốc" !!}
                                     @else
-                                        <?php $parent = DB::table('categories')->where('cat_id',$item->cat_parentid)->first();?>
-                                            {!! $parent->cat_name !!}
+                                        <?php $parent = DB::table('categories')->where('id',$item->parentid)->first();?>
+                                            {!! $parent->name !!}
                                     @endif
 
                                 </td>
                                 <td>{!! $item->created_at !!}</td>
                                 <td class="text-center"><i class="text-danger fa fa-times"></i></td>
                                 <td>
-                                    <a href="{!! URL::route('admin.category.getEdit',$item->cat_id) !!}" class="btn btn-info btn-xs edit"><i class="fa fa-edit"></i> Sửa</a>
-                                    <a href="{!! URL::route('admin.category.getDelete',$item->cat_id) !!}" class="btn btn-danger btn-xs delete"><i class="fa fa-trash-o"></i> Xóa</a>
+                                    <a href="{!! URL::route('admin.category.getEdit',$item->id) !!}" class="btn btn-info btn-xs edit"><i class="fa fa-edit"></i> Sửa</a>
+                                    <a href="{!! URL::route('admin.category.getDelete',$item->id) !!}" class="btn btn-danger btn-xs delete"><i class="fa fa-trash-o"></i> Xóa</a>
                                 </td>
                             </tr>
                             @endforeach

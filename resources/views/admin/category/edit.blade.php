@@ -36,7 +36,7 @@
                                 <label for="parentid">Danh mục cha</label>
                                 <select name="parentid" id="parentid" class="form-control">
                                     <option value="0">--Chọn danh mục cha--</option>
-                                    <?php cat_parent($parent);?>
+                                    <?php parent($parent);?>
                                 </select>
                             </div>
                             <div class="form-group">
