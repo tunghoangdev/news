@@ -7,15 +7,7 @@
                <span class="widget-caption">Thêm mới danh mục</span>
             </div>
             <div class="widget-body">
-               @if(count($errors) >0)
-                  <div class="alert alert-danger">
-                     <ul>
-                        @foreach($errors->all() as $error)
-                           <li>{!! $error !!}</li>
-                        @endforeach
-                     </ul>
-                  </div>
-               @endif
+                @include('admin.alert.notify')
                <div>
                   <form action="{!! route('admin.category.getAdd') !!}" method="post" role="form">
                      <input type="hidden" name="_token" value="{!! csrf_token() !!}">
@@ -35,7 +27,7 @@
                         <label for="parentid">Danh mục cha</label>
                         <select name="parentid" id="parentid" class="form-control">
                            <option value="0">--Chọn danh mục cha--</option>
-                           <?php parent($parent);?>
+                            {!! cat_parent($parent) !!}
                         </select>
                      </div>
                      <div class="form-group">
@@ -49,7 +41,7 @@
                      <div class="form-group">
                         <div class="checkbox">
                            <label>
-                              <input type="checkbox">
+                              <input type="checkbox" checked="checked" name="status" value="1" id="status">
                               <span class="text">Kích hoạt</span>
                            </label>
                         </div>

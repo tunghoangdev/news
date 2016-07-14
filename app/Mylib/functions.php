@@ -40,11 +40,11 @@ function changTitle($str){
     $str = str_replace(' ','-',$str);
     return $str;
 }
-function cat_parent($data, $parent = 0, $str = '|--', $select = 0){
+function cat_parent($data, $parent = 0, $str = '', $select = 0){
     foreach ($data as $key=>$item){
-        $id = $item['cat_id'];
-        $name = $item['cat_name'];
-        if ($item['cat_parentid'] == $parent){
+        $id = $item['id'];
+        $name = $item['name'];
+        if ($item['parent_id'] == $parent){
             if ($select != 0 && $id == $select){
                 echo "<option selected='selected' value='$id'>$str $name</option>";
             }else{

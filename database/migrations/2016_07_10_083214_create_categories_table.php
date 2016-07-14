@@ -20,6 +20,7 @@ class CreateCategoriesTable extends Migration
             $table->integer('parent_id');
             $table->string('keywords');
             $table->string('description');
+            $table->integer('status');
             $table->timestamps();
         });
     }

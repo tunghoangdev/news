@@ -5,6 +5,14 @@
 $(function() {
     console.log( "ready!" );
     $('div.alert').delay(3000).fadeOut();
+
+    $(".checkbox-slider").change(function(){
+        if($(this).prop("checked") == true){
+            alert('on');
+        }else{
+            alert('off');
+        }
+    });
 });
 function config_action(msg) {
     if (window.confirm(msg)){

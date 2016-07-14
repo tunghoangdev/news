@@ -68,19 +68,31 @@
                             <tr role="row" class="odd">
                                 <td class="sorting_1">{!! $item->name !!}</td>
                                 <td>
-                                    @if($item->parentid == 0)
+                                    @if($item->parent_id == 0)
                                         {!! "Danh mục gốc" !!}
                                     @else
-                                        <?php $parent = DB::table('categories')->where('id',$item->parentid)->first();?>
+                                        <?php $parent = DB::table('categories')->where('id',$item->parent_id)->first();?>
                                             {!! $parent->name !!}
+                                    @endif
+                                </td>
+                                <td>{!! $item->created_at !!}</td>
+                                <td class="text-center">
+                                    @if($item->status == 0)
+                                        <label>
+                                            <input class="checkbox-slider slider-icon colored-blue" type="checkbox">
+                                            <span class="text"></span>
+                                        </label>
+                                    @else
+                                        <label>
+                                            <input class="checkbox-slider slider-icon colored-blue" checked="checked" type="checkbox">
+                                            <span class="text"></span>
+                                        </label>
                                     @endif
 
                                 </td>
-                                <td>{!! $item->created_at !!}</td>
-                                <td class="text-center"><i class="text-danger fa fa-times"></i></td>
                                 <td>
                                     <a href="{!! URL::route('admin.category.getEdit',$item->id) !!}" class="btn btn-info btn-xs edit"><i class="fa fa-edit"></i> Sửa</a>
-                                    <a href="{!! URL::route('admin.category.getDelete',$item->id) !!}" class="btn btn-danger btn-xs delete"><i class="fa fa-trash-o"></i> Xóa</a>
+                                    <a onclick="return config_action('Bạn có chắc chắn xóa?');" href="{!! URL::route('admin.category.getDelete',$item->id) !!}" class="btn btn-danger btn-xs delete"><i class="fa fa-trash-o"></i> Xóa</a>
                                 </td>
                             </tr>
                             @endforeach

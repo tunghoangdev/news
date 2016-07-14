@@ -24,7 +24,7 @@ class CategoryRequest extends Request
     public function rules()
     {
         return [
-            'catname'=>'required|unique:categories,cat_name',
+            'catname'=>'required|unique:categories,name',
         ];
     }
     public  function messages()

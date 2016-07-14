@@ -7,22 +7,13 @@
                     <span class="widget-caption">Chỉnh sửa danh mục</span>
                 </div>
                 <div class="widget-body">
-                    @if(count($errors) >0)
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach($errors->all() as $error)
-                                    <li>{!! $error !!}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+                    @include('admin.alert.notify')
                     <div>
                         <form action="{!! route('admin.category.getAdd') !!}" method="post" role="form">
                             <input type="hidden" name="_token" value="{!! csrf_token() !!}">
-                            @if(count($catlist))
                             <div class="form-group">
-                                <label for="catname">Tên danh mục</label>
-                                <input class="form-control" id="catname"  name="catname" value="" placeholder="Nhập tên thể loại" type="text">
+                                <label for="cat_name">Tên danh mục</label>
+                                <input class="form-control" id="cat_name"  name="cat_name" value="{!! old('cat_name',isset($data)?$data->name : null) !!}" placeholder="Nhập tên thể loại" type="text">
                             </div>
                             {{--<div class="form-group">--}}
                             {{--<label for="alias">Alias</label>--}}
@@ -30,33 +21,32 @@
                             {{--</div>--}}
                             <div class="form-group">
                                 <label for="alias">Sắp xếp</label>
-                                <input class="form-control" id="order" name="order" placeholder="Số thứ tự" type="text">
+                                <input class="form-control" id="order" name="order" value="{!! old('order',isset($data)?$data->order : null) !!}" placeholder="Số thứ tự" type="text">
                             </div>
                             <div class="form-group">
                                 <label for="parentid">Danh mục cha</label>
                                 <select name="parentid" id="parentid" class="form-control">
                                     <option value="0">--Chọn danh mục cha--</option>
-                                    <?php parent($parent);?>
+                                        {!! cat_parent($parent,0,'',$data->parent_id) !!}
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="keyword">Keywords</label>
-                                <input class="form-control" id="keyword" name="keyword" placeholder="Nhập Keywords" type="text">
+                                <input class="form-control" id="keyword" name="keyword" value="{!! old('keyword',isset($data)?$data->keywords : null) !!}" placeholder="Nhập Keywords" type="text">
                             </div>
                             <div class="form-group">
                                 <label for="keyword">Description</label>
-                                <input class="form-control" id="description" name="description" placeholder="Nhập Description" type="text">
+                                <textarea class="form-control" id="description" name="description" placeholder="Nhập Description">{!! old('description',isset($data)?$data->description : null) !!}</textarea>
                             </div>
                             <div class="form-group">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox">
+                                        <input type="checkbox" {!! old('description',isset($data)&& $data->description ? 'checked="checked"' : null) !!}  name="status" value="1" id="status">
                                         <span class="text">Kích hoạt</span>
                                     </label>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-blue">Thêm mới</button>
-                            @endif
+                            <button type="submit" class="btn btn-blue">Cập nhật</button>
                         </form>
                     </div>
                 </div>
