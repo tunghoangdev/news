@@ -27,7 +27,9 @@
                         <label for="parentid">Danh mục cha</label>
                         <select name="parentid" id="parentid" class="form-control">
                            <option value="0">--Chọn danh mục cha--</option>
+                           @if(count($parent) > 0)
                             {!! cat_parent($parent) !!}
+                              @endif
                         </select>
                      </div>
                      <div class="form-group">

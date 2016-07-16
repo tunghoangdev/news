@@ -9,7 +9,7 @@
                 <div class="widget-body">
                     @include('admin.alert.notify')
                     <div>
-                        <form action="{!! route('admin.category.getAdd') !!}" method="post" role="form">
+                        <form action="" method="post" role="form">
                             <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                             <div class="form-group">
                                 <label for="cat_name">Tên danh mục</label>
