@@ -32,7 +32,14 @@ Purchase: http://wrapbootstrap.com
     <link href="{!! asset('public/tdev_admin/assets/css/animate.min.css') !!}" rel="stylesheet" />
     <link href="{!! asset('public/tdev_admin/assets/css/dataTables.bootstrap.css') !!}" rel="stylesheet" />
     <link id="skin-link" href="" rel="stylesheet" type="text/css" />
-
+    {{--Nhung trinh soan thao--}}
+    <script src="{!! asset('public/tdev_admin/assets/js/ckeditor/ckeditor.js') !!}"></script>
+    <script src="{!! asset('public/tdev_admin/assets/js/ckfinder/ckfinder.js') !!}"></script>
+    <script type="text/javascript">
+        var baseURL = "{!! url('/') !!}";
+    </script>
+    <script src="{!! asset('public/tdev_admin/assets/js/func_ckfinder.js') !!}"></script>
+    {{--End Nhung trinh soan thao--}}
     <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
     <script src="{!! asset('public/tdev_admin/assets/js/skins.js') !!}"></script>
 </head>

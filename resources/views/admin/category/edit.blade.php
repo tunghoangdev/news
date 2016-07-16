@@ -41,7 +41,7 @@
                             <div class="form-group">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" {!! old('description',isset($data)&& $data->description ? 'checked="checked"' : null) !!}  name="status" value="1" id="status">
+                                        <input type="checkbox" {!! old('description',isset($data)&& $data->status ? 'checked="checked"' : null) !!}  name="status" value="1" id="status">
                                         <span class="text">Kích hoạt</span>
                                     </label>
                                 </div>

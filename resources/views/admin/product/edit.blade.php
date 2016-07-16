@@ -4,50 +4,44 @@
         <div class="col-lg-8 col-sm-8 col-xs-12">
             <div class="widget">
                 <div class="widget-header bordered-bottom bordered-blue">
-                    <span class="widget-caption">Chỉnh sửa sản phẫm</span>
+                    <span class="widget-caption">Chỉnh sửa danh mục</span>
                 </div>
                 <div class="widget-body">
+                    @include('admin.alert.notify')
                     <div>
-                        <form role="form">
+                        <form action="" method="post" role="form">
+                            <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                             <div class="form-group">
-                                <label for="catname">Tên sản phẩm</label>
-                                <input class="form-control" id="catname"  name="catname" placeholder="Nhập tên sản phẩm" type="text">
+                                <label for="cat_name">Tên danh mục</label>
+                                <input class="form-control" id="cat_name"  name="cat_name" value="{!! old('cat_name',isset($data)?$data->name : null) !!}" placeholder="Nhập tên thể loại" type="text">
+                            </div>
+                            {{--<div class="form-group">--}}
+                            {{--<label for="alias">Alias</label>--}}
+                            {{--<input class="form-control" id="alias" name="alias" placeholder="Nhập Alias" type="text">--}}
+                            {{--</div>--}}
+                            <div class="form-group">
+                                <label for="alias">Sắp xếp</label>
+                                <input class="form-control" id="order" name="order" value="{!! old('order',isset($data)?$data->order : null) !!}" placeholder="Số thứ tự" type="text">
                             </div>
                             <div class="form-group">
-                                <label for="alias">Alias</label>
-                                <input class="form-control" id="alias" name="alias" placeholder="Nhập Alias" type="text">
-                            </div>
-                            <div class="form-group">
-                                <label for="price">Giá sản phẩm</label>
-                                <input class="form-control" id="price" name="price" placeholder="Giá sản phẩm" type="text">
-                            </div>
-                            <div class="form-group">
-                                <label for="intro">Mô tả ngắn</label>
-                                <textarea class="form-control" id="intro" name="intro" placeholder="Nhập mô tả ngắn" type="text"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="content">Chi tiết sản phẩm</label>
-                                <textarea class="form-control" id="content" name="content" placeholder="Nhập mô tả ngắn" type="text"></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="procat">Danh mục sản phẩm</label>
-                                <select name="procat" id="procat" class="form-control">
-                                    <option value="">--Chọn danh mục cha--</option>
+                                <label for="parentid">Danh mục cha</label>
+                                <select name="parentid" id="parentid" class="form-control">
+                                    <option value="0">--Chọn danh mục cha--</option>
+                                    {!! cat_parent($parent,0,'',$data->parent_id) !!}
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="keyword">Keywords</label>
-                                <input class="form-control" id="keyword" name="keyword" placeholder="Nhập Keywords" type="text">
+                                <input class="form-control" id="keyword" name="keyword" value="{!! old('keyword',isset($data)?$data->keywords : null) !!}" placeholder="Nhập Keywords" type="text">
                             </div>
                             <div class="form-group">
                                 <label for="keyword">Description</label>
-                                <input class="form-control" id="description" name="description" placeholder="Nhập Description" type="text">
+                                <textarea class="form-control" id="description" name="description" placeholder="Nhập Description">{!! old('description',isset($data)?$data->description : null) !!}</textarea>
                             </div>
                             <div class="form-group">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox">
+                                        <input type="checkbox" {!! old('description',isset($data)&& $data->status ? 'checked="checked"' : null) !!}  name="status" value="1" id="status">
                                         <span class="text">Kích hoạt</span>
                                     </label>
                                 </div>
