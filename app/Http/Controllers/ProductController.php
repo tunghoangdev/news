@@ -6,38 +6,44 @@ use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
     public function getList(){
         $catlist = Category::select('id','name','parent_id','status','created_at')->orderBy('id','DESC')->get();
-        return view('admin.Product.list',compact('catlist'));
+        return view('admin.product.list',compact('productlist'));
     }
     public function getAdd(){
         $cat = Category::select('id','name','parent_id','status')->get()->toArray();
-        return view('admin.Product.create',compact('cat'));
+        return view('admin.product.create',compact('cat'));
     }
     public function postAdd(ProductRequest $request){
-        $cat = new Product;
-        $cat->name = $request->catname;
-        $cat->alias = changTitle($request->catname);
-        $cat->order = $request->order;
-        $cat->parent_id = $request->parentid;
-        $cat->keywords = $request->keyword;
-        $cat->description = $request->description;
-        $cat->status = $request->status;
-        $cat->save();
-        return redirect()->route('admin.Product.list')->with(['flash_type'=>'success','flash_msg'=>'Thêm danh m?c thành công!']);
+        $product = new Product;
+        $product->name = $request->name;
+        $product->alias = changTitle($request->name);
+        $product->price = $request->price;
+        $product->intro = $request->intro;
+        $product->content = $request->txtcontent;
+        $product->catid = $request->catid;
+        $product->images = $request->imager;
+        $product->keywords = $request->keyword;
+        $product->description = $request->description;
+        $product->status = $request->status;
+        $product->save();
+        return redirect()->route('admin.product.list')->with(['flash_type'=>'success','flash_msg'=>'ThÃªm sáº£n pháº©m thÃ nh cÃ´ng!']);
     }
     public function getEdit($id){
         $data = Product::findOrFail($id);
         $parent = Product::select('id','name','parent_id','status')->get()->toArray();
-        return view('admin.Product.edit',compact('parent','data'));
+        return view('admin.product.edit',compact('parent','data'));
     }
     public function postEdit(Request $request,$id){
         $this->validate($request,
-            ['cat_name'=>'required'],
-            ['cat_name.required'=>'B?n vui lòng nh?p tên danh m?c']
+            ['name'=>'required'],
+            ['name.required'=>'Báº¡n vui lÃ²ng nháº­p tÃªn sáº£n pháº©m'],
+            ['catid'=>'required'],
+            ['catid.required'=>'Báº¡n vui lÃ²ng nháº­p tÃªn sáº£n pháº©m']
         );
         $cat = Product::find($id);
         $cat->name = $request->cat_name;
@@ -48,19 +54,19 @@ class ProductController extends Controller
         $cat->description = $request->description;
         $cat->status = $request->status;
         $cat->save();
-        return redirect()->route('admin.Product.list')->with(['flash_type'=>'success','flash_msg'=>'C?p nh?t danh m?c thành công!']);
+        return redirect()->route('admin.product.list')->with(['flash_type'=>'success','flash_msg'=>'C?p nh?t danh m?c thï¿½nh cï¿½ng!']);
     }
     public function getDelete($id){
         $parent = Product::where('parent_id',$id)->count();
         if ($parent == 0) {
             $cat = Product::find($id);
             $cat->delete($id);
-            return redirect()->route('admin.Product.list')->with(['flash_type' => 'success', 'flash_msg' => 'Xóa danh m?c thành công!']);
+            return redirect()->route('admin.product.list')->with(['flash_type' => 'success', 'flash_msg' => 'Xï¿½a danh m?c thï¿½nh cï¿½ng!']);
         } else{
             echo "<script>
-                    alert('B?n không th? xóa danh m?c này');
+                    alert('B?n khï¿½ng th? xï¿½a danh m?c nï¿½y');
                    window.location = '";
-            echo route('admin.Product.list');
+            echo route('admin.product.list');
             echo "'
             </script>";
         }

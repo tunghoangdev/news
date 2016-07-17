@@ -25,13 +25,15 @@ class ProductRequest extends Request
     {
         return [
             'name'=>'required|unique:products,name',
+            'catid'=>'required:products,catid',
         ];
     }
     public  function messages()
     {
         return [
-            'name.products'=>'Bạn vui lòng nhập tên sản phẩm',
+            'name.required'=>'Bạn vui lòng nhập tên sản phẩm',
             'name.unique'=>'Tên sản phẩm đã tồn tại',
+            'catid.required'=>'Bạn vui lòng chọn danh mục',
         ];
     }
 }

@@ -12,7 +12,7 @@
                         <form action="{!! route('admin.product.getAdd') !!}" method="post" role="form">
                             <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                             <div class="form-group">
-                                <label for="catname">Tên sản phẩm</label>
+                                <label for="name">Tên sản phẩm</label>
                                 <input class="form-control" id="name"  name="name" value="" placeholder="Nhập tên sản phẩm" type="text">
                             </div>
                             {{--<div class="form-group">--}}
@@ -25,18 +25,18 @@
                             </div>
                             <div class="form-group">
                                 <label for="intro">Mô tả ngắn</label>
-                                <textarea class="form-control" id="intro" name="intro" placeholder="Mô tả ngắn"></textarea>
+                                <textarea class="form-control" id="txtintro" name="txtintro" placeholder="Mô tả ngắn"></textarea>
                                 <script>ckeditor('intro');</script>
                             </div>
                              <div class="form-group">
                                 <label for="intro">Chi tiết sản phẩm</label>
-                                <textarea class="form-control" id="content" name="content" placeholder="Chi tiết sản phẩm"></textarea>
-                                 <script>ckeditor('content');</script>
+                                <textarea class="form-control" id="txtcontent" name="txtcontent" placeholder="Chi tiết sản phẩm"></textarea>
+                                 <script>ckeditor('txtcontent');</script>
                             </div>
                             <div class="form-group">
                                 <label for="parentid">Danh mục</label>
                                 <select name="catid" id="catid" class="form-control">
-                                    <option value="0">--Chọn danh mục--</option>
+                                    <option value="">--Chọn danh mục--</option>
                                     @if(count($cat) > 0)
                                         {!! cat_parent($cat) !!}
                                     @endif
