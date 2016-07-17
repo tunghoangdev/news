@@ -46,8 +46,14 @@
                         <table class="table table-striped table-hover table-bordered dataTable no-footer" id="editabledatatable" role="grid" aria-describedby="editabledatatable_info">
                             <thead>
                             <tr role="row">
-                                <th class="sorting_asc" tabindex="0" aria-controls="editabledatatable"  aria-sort="ascending" aria-label=" T�n danh m?c: activate to sort column descending">
+                                <th class="sorting_asc" tabindex="0" aria-controls="editabledatatable"  aria-sort="ascending" aria-label=" Hình sản phẩm: activate to sort column descending">
+                                    Hình sản phẩm
+                                </th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="editabledatatable"  aria-sort="ascending" aria-label=" Tên sản phẩm: activate to sort column descending">
                                     Tên sản phẩm
+                                </th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="editabledatatable"  aria-sort="ascending" aria-label=" Tên sản phẩm: activate to sort column descending">
+                                    Giá sản phẩm
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="editabledatatable"  aria-label="Danh m?c cha: activate to sort column ascending">
                                     Danh mục
@@ -64,18 +70,22 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($catlist as $item)
+                            @foreach($product as $item)
                                 <tr role="row" class="odd">
-                                    <td class="sorting_1">{!! $item->name !!}</td>
-                                    <td>
-                                        @if($item->parent_id == 0)
-                                            {!! "Danh m?c g?c" !!}
-                                        @else
-                                            <?php $parent = DB::table('categories')->where('id',$item->parent_id)->first();?>
-                                            {!! $parent->name !!}
-                                        @endif
+                                    <td class="sorting_1">
+                                    <img width="100" src="{!! url('resources/upload').'/'.$item->images !!}">
                                     </td>
-                                    <td>{!! $item->created_at !!}</td>
+                                    <td class="sorting_1">{!! $item->name !!}</td>
+                                    <td class="sorting_1">{!! number_format($item->price,0,',','.').' VNĐ' !!}</td>
+                                    <td>
+                                     @if($item->catid > 0)
+                                        <?php $cat = DB::table('categories')->where('id',$item->catid)->first() ?>
+                                        {!! $cat->name !!}
+                                    @endif
+                                    </td>
+                                    <td>
+                                        {!! Carbon\Carbon::createFromTimestamp(strtotime($item->created_at))->diffForHumans() !!}
+                                    </td>
                                     <td class="text-center">
                                         @if($item->status == 0)
                                             <label>
@@ -88,11 +98,10 @@
                                                 <span class="text"></span>
                                             </label>
                                         @endif
-
                                     </td>
                                     <td>
                                         <a href="{!! URL::route('admin.product.getEdit',$item->id) !!}" class="btn btn-info btn-xs edit"><i class="fa fa-edit"></i> S?a</a>
-                                        <a onclick="return config_action('B?n c� ch?c ch?n x�a?');" href="{!! URL::route('admin.product.getDelete',$item->id) !!}" class="btn btn-danger btn-xs delete"><i class="fa fa-trash-o"></i> X�a</a>
+                                        <a onclick="return config_action('Bạn có chắc chắn xóa?');" href="{!! URL::route('admin.product.getDelete',$item->id) !!}" class="btn btn-danger btn-xs delete"><i class="fa fa-trash-o"></i> X�a</a>
                                     </td>
                                 </tr>
                             @endforeach

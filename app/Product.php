@@ -8,7 +8,6 @@ class Product extends Model
 {
     protected $table = 'products';
     protected $fillable = ['name','alias','price','intro','content','images','keywords','descriptions','userid','catid'];
-    public  $timestamps = false;
     public function category(){
         return $this->belongsTo('App\Category');
     }

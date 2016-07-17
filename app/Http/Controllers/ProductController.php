@@ -11,8 +11,8 @@ use App\Http\Requests\ProductRequest;
 class ProductController extends Controller
 {
     public function getList(){
-        $catlist = Category::select('id','name','parent_id','status','created_at')->orderBy('id','DESC')->get();
-        return view('admin.product.list',compact('catlist'));
+        $product = Product::select('id','name','catid','price','images','status','created_at')->orderBy('id','DESC')->get();
+        return view('admin.product.list',compact('product'));
     }
     public function getAdd(){
         $cat = Category::select('id','name','parent_id','status')->get()->toArray();
@@ -27,7 +27,7 @@ class ProductController extends Controller
         $product->intro = $request->txtintro;
         $product->content = $request->txtcontent;
         $product->images = $file_name;
-        $request->file('imager')->move('resources/upload/');
+        $request->file('imager')->move('resources/upload/',$file_name);
         $product->keywords = $request->keyword;
         $product->descriptions = $request->description;
         $product->catid = $request->catid;
