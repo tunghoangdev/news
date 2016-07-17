@@ -12,23 +12,26 @@ class ProductController extends Controller
 {
     public function getList(){
         $catlist = Category::select('id','name','parent_id','status','created_at')->orderBy('id','DESC')->get();
-        return view('admin.product.list',compact('productlist'));
+        return view('admin.product.list',compact('catlist'));
     }
     public function getAdd(){
         $cat = Category::select('id','name','parent_id','status')->get()->toArray();
         return view('admin.product.create',compact('cat'));
     }
     public function postAdd(ProductRequest $request){
+        $file_name = $request->file('imager')->getClientOriginalName();
         $product = new Product;
         $product->name = $request->name;
         $product->alias = changTitle($request->name);
         $product->price = $request->price;
-        $product->intro = $request->intro;
+        $product->intro = $request->txtintro;
         $product->content = $request->txtcontent;
-        $product->catid = $request->catid;
-        $product->images = $request->imager;
+        $product->images = $file_name;
+        $request->file('imager')->move('resources/upload/');
         $product->keywords = $request->keyword;
-        $product->description = $request->description;
+        $product->descriptions = $request->description;
+        $product->catid = $request->catid;
+        $product->userid = 1;
         $product->status = $request->status;
         $product->save();
         return redirect()->route('admin.product.list')->with(['flash_type'=>'success','flash_msg'=>'Thêm sản phẩm thành công!']);

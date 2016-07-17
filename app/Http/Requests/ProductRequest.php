@@ -13,7 +13,7 @@ class ProductRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,6 +26,7 @@ class ProductRequest extends Request
         return [
             'name'=>'required|unique:products,name',
             'catid'=>'required:products,catid',
+            'imager'=>'required:products,images',
         ];
     }
     public  function messages()
@@ -34,6 +35,7 @@ class ProductRequest extends Request
             'name.required'=>'Bạn vui lòng nhập tên sản phẩm',
             'name.unique'=>'Tên sản phẩm đã tồn tại',
             'catid.required'=>'Bạn vui lòng chọn danh mục',
+            'imager.required'=>'Bạn vui lòng chọn hình ảnh',
         ];
     }
 }
