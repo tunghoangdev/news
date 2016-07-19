@@ -32,6 +32,10 @@ Purchase: http://wrapbootstrap.com
     <link href="{!! asset('public/tdev_admin/assets/css/animate.min.css') !!}" rel="stylesheet" />
     <link href="{!! asset('public/tdev_admin/assets/css/dataTables.bootstrap.css') !!}" rel="stylesheet" />
     <link id="skin-link" href="" rel="stylesheet" type="text/css" />
+    <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+    <link rel="stylesheet" href="{!! asset('public/tdev_admin/assets/css/jquery.fileupload.css') !!}">
+    <!-- CSS adjustments for browsers with JavaScript disabled -->
+    <noscript><link rel="stylesheet" href="{!! asset('public/tdev_admin/assets/css/jquery.fileupload-noscript.css') !!}"></noscript>
     {{--Nhung trinh soan thao--}}
     <script src="{!! asset('public/tdev_admin/assets/js/ckeditor/ckeditor.js') !!}"></script>
     <script src="{!! asset('public/tdev_admin/assets/js/ckfinder/ckfinder.js') !!}"></script>
@@ -788,7 +792,33 @@ Purchase: http://wrapbootstrap.com
 <script src="{!! asset('public/tdev_admin/assets/js/charts/flot/jquery.flot.tooltip.js') !!}"></script>
 <script src="{!! asset('public/tdev_admin/assets/js/charts/flot/jquery.flot.orderBars.js') !!}"></script>
 <script src="{!! asset('public/tdev_admin/assets/js/myscript.js') !!}"></script>
-
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+<script src="{!! asset('public/tdev_admin/assets/js/vendor/jquery.ui.widget.js') !!}"></script>
+<!-- The Templates plugin is included to render the upload/download listings -->
+<script src="//blueimp.github.io/JavaScript-Templates/js/tmpl.min.js"></script>
+<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+<script src="//blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
+<!-- The Canvas to Blob plugin is included for image resizing functionality -->
+<script src="//blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
+<!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<!-- blueimp Gallery script -->
+<script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+<script src="{!! asset('public/tdev_admin/assets/js/jquery.iframe-transport.js') !!}"></script>
+<!-- The basic File Upload plugin -->
+<script src="{!! asset('public/tdev_admin/assets/js/jquery.fileupload.js') !!}"></script>
+<!-- The File Upload processing plugin -->
+<script src="{!! asset('public/tdev_admin/assets/js/jquery.fileupload-process.js') !!}"></script>
+<!-- The File Upload image preview & resize plugin -->
+<script src="{!! asset('public/tdev_admin/assets/js/jquery.fileupload-image.js') !!}"></script>
+<!-- The File Upload validation plugin -->
+<script src="{!! asset('public/tdev_admin/assets/js/jquery.fileupload-validate.js') !!}"></script>
+<!-- The File Upload user interface plugin -->
+<script src="{!! asset('public/tdev_admin/assets/js/jquery.fileupload-ui.js') !!}"></script>
+<!-- The main application script -->
+<script src="{!! asset('public/tdev_admin/assets/js/main.js') !!}"></script>
 <script>
     // If you want to draw your charts with Theme colors you must run initiating charts after that current skin is loaded
     $(window).bind("load", function () {
