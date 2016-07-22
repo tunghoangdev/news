@@ -35,3 +35,4 @@ Route::group(['prefix'=>'admin'], function () {
         Route::get('delete/{id}',['as'=>'admin.product.getDelete','uses'=>'ProductController@getDelete']);
     });
 });
+Route::post('upload',['as'=>'upload','uses'=>'UploadController@index']);

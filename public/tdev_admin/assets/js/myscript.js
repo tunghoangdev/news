@@ -3,9 +3,7 @@
  */
 // Shorthand for $( document ).ready()
 $(function() {
-    console.log( "ready!" );
-    $('div.alert').delay(3000).fadeOut();
-
+    $('div.alert').delay(5000).fadeOut();
     $(".checkbox-slider").change(function(){
         if($(this).prop("checked") == true){
             alert('on');

@@ -19,7 +19,34 @@ class ProductController extends Controller
         return view('admin.product.create',compact('cat'));
     }
     public function postAdd(ProductRequest $request){
-        $file_name = $request->file('imager')->getClientOriginalName();
+       // $file_name = $request->file('imager')->getClientOriginalName();
+
+        // getting all of the post data
+        $files = $request->file('fileupload');
+        // Making counting of uploaded images
+        $file_count = count($files);
+        // start count how many uploaded
+        $uploadcount = 0;
+        foreach($files as $file) {
+            $filename = $file->getClientOriginalName();
+            print_r($filename); exit;
+//            $rules = array('file' => 'required'); //'required|mimes:png,gif,jpeg,txt,pdf,doc'
+//            $validator = Validator::make(array('file'=> $file), $rules);
+//            if($validator->passes()){
+//                $destinationPath = 'uploads';
+//
+//                $upload_success = $file->move($destinationPath, $filename);
+//                $uploadcount ++;
+//            }
+        }
+//        if($uploadcount == $file_count){
+//            Session::flash('success', 'Upload successfully');
+//            return Redirect::to('upload');
+//        }
+//        else {
+//            return Redirect::to('upload')->withInput()->withErrors($validator);
+//        }
+
         $product = new Product;
         $product->name = $request->name;
         $product->alias = changTitle($request->name);
