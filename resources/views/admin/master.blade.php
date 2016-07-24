@@ -46,6 +46,8 @@ Purchase: http://wrapbootstrap.com
     {{--End Nhung trinh soan thao--}}
     <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
     <script src="{!! asset('public/tdev_admin/assets/js/skins.js') !!}"></script>
+    <script src="{!! asset('vendor/dropzoner/dropzone/dropzone.min.js') !!}"></script>
+    <script src="{!! asset('vendor/dropzoner/dropzone/config.js') !!}"></script>
 </head>
 <!-- /Head -->
 <!-- Body -->

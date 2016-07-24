@@ -23,10 +23,11 @@ class ProductController extends Controller
 
         // getting all of the post data
         $files = $request->file('fileupload');
+        print_r($files); exit;
         // Making counting of uploaded images
-        $file_count = count($files);
+      //  $file_count = count($files);
         // start count how many uploaded
-        $uploadcount = 0;
+       // $uploadcount = 0;
         foreach($files as $file) {
             $filename = $file->getClientOriginalName();
             print_r($filename); exit;
