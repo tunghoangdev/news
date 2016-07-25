@@ -8,8 +8,8 @@ use App\Product_imgages;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Requests\ProductRequest;
-use Symfony\Component\HttpFoundation\File\File;
-
+//use Symfony\Component\HttpFoundation\File\File;
+use Illuminate\Support\Facades\File;
 class ProductController extends Controller
 {
     public function getList(){

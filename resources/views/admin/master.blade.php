@@ -750,7 +750,7 @@ Purchase: http://wrapbootstrap.com
                         @endif
                     </div>
                 </div>
-                 @yield('content');
+                 @yield('content')
             </div>
             <!-- /Page Body -->
         </div>
