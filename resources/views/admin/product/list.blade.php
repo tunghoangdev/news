@@ -100,8 +100,8 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{!! URL::route('admin.product.getEdit',$item->id) !!}" class="btn btn-info btn-xs edit"><i class="fa fa-edit"></i> S?a</a>
-                                        <a onclick="return config_action('Bạn có chắc chắn xóa?');" href="{!! URL::route('admin.product.getDelete',$item->id) !!}" class="btn btn-danger btn-xs delete"><i class="fa fa-trash-o"></i> X�a</a>
+                                        <a href="{!! URL::route('admin.product.getEdit',$item->id) !!}" class="btn btn-info btn-xs edit"><i class="fa fa-edit"></i> Edit</a>
+                                        <a onclick="return config_action('Bạn có chắc chắn xóa?');" href="{!! URL::route('admin.product.getDelete',$item->id) !!}" class="btn btn-danger btn-xs delete"><i class="fa fa-trash-o"></i> Delete</a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -109,7 +109,7 @@
                         </table>
                         <div class="row DTTTFooter">
                             <div class="col-sm-6">
-                                <div class="dataTables_info" id="editabledatatable_info" role="status" aria-live="polite">?ang xem 5/10</div>
+                                <div class="dataTables_info" id="editabledatatable_info" role="status" aria-live="polite">Đang xem 5/10</div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="dataTables_paginate paging_bootstrap" id="editabledatatable_paginate">
