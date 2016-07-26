@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Product;
 use App\Product_imgages;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Requests\ProductRequest;
+use Request;
 //use Symfony\Component\HttpFoundation\File\File;
 use Illuminate\Support\Facades\File;
 class ProductController extends Controller
@@ -52,9 +53,10 @@ class ProductController extends Controller
         return redirect()->route('admin.product.list')->with(['flash_type'=>'success','flash_msg'=>'Thêm sản phẩm thành công!']);
     }
     public function getEdit($id){
-        $data = Product::findOrFail($id);
-        $parent = Product::select('id','name','parent_id','status')->get()->toArray();
-        return view('admin.product.edit',compact('parent','data'));
+        $data = Product::find($id);
+        $parent = Category::select('id','name','parent_id','status')->get();
+        $proimg = Product::find($id)->pimage;
+        return view('admin.product.edit',compact('parent','data','proimg'));
     }
     public function postEdit(Request $request,$id){
         $this->validate($request,
@@ -73,6 +75,20 @@ class ProductController extends Controller
         $cat->status = $request->status;
         $cat->save();
         return redirect()->route('admin.product.list')->with(['flash_type'=>'success','flash_msg'=>'Cập nhật sản phẩm thành công!']);
+    }
+    public function getDelImg($id){
+        if(Request::ajax()){
+            $idhinh = (int)Request::get('idimg');
+            $img = Product_imgages::find($idhinh);
+            if ($img !=''){
+                $imgage = 'resources/upload/details/'.$img->image;
+                if (File::exists($imgage)){
+                    File::delete($imgage);
+                }
+                $img->delete();
+            }
+            return 'Ok';
+        }
     }
     public function getDelete($id){
         $pro_detail = Product::find($id)->pimage;
