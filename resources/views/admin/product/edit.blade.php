@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('content')
     <div class="row">
-        <form name="frmEditProduct" action="{!! route('admin.product.getAdd') !!}" method="post" enctype="multipart/form-data" role="form">
+        <form name="frmEditProduct" action="" method="post" enctype="multipart/form-data" role="form">
             <input type="hidden" name="_token" value="{!! csrf_token() !!}">
             <div class="col-lg-8 col-sm-8 col-xs-8">
                 <div class="widget">
@@ -52,11 +52,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="keyword">Keywords</label>
-                                <input class="form-control" id="keyword" name="keyword" value="{!! old('keyword') !!}" placeholder="Nhập Keywords" type="text">
+                                <input class="form-control" id="keyword" name="keyword" value="{!! old('keyword',isset($data) ? $data->keywords: null) !!}" placeholder="Nhập Keywords" type="text">
                             </div>
                             <div class="form-group">
                                 <label for="keyword">Description</label>
-                                <input class="form-control" id="description" name="description" value="{!! old('description') !!}" placeholder="Nhập Description" type="text">
+                                <input class="form-control" id="description" name="description" value="{!! old('description',isset($data) ? $data->descriptions: null) !!}" placeholder="Nhập Description" type="text">
                             </div>
                             <div class="form-group">
                                 <div class="checkbox">

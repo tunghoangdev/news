@@ -51,7 +51,7 @@ function cat_parent($data, $parent = 0, $str = '', $select = 0){
                 echo "<option value='$id'>$str $name</option>";
             }
             unset($data[$key]);
-            cat_parent($data, $id, $str . '|--');
+            cat_parent($data, $id, $str . '|--', $select);
         }
     }
 }

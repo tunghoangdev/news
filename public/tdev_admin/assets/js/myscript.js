@@ -18,7 +18,7 @@ $(function() {
        // var img = $(this).parent().find('img').attr('src');
         $.ajax({
             url: url+idimg,
-            type: 'GET',
+            type: 'POST',
             cache: false,
             data:{_token:_token,idimg:idimg},
             success: function (data) {

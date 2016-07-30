@@ -1,16 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests;
+use Illuminate\Http\Request;
+//use Symfony\Component\HttpFoundation\Request;
 use App\Category;
 use App\Product;
 use App\Product_imgages;
-//use Illuminate\Http\Request;
-use App\Http\Requests;
 use App\Http\Requests\ProductRequest;
-use Request;
-//use Symfony\Component\HttpFoundation\File\File;
+use Input;
+//use Request;
+//use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Illuminate\Support\Facades\File;
+use App\Http\Controllers\Controller;
 class ProductController extends Controller
 {
     public function getList(){
@@ -63,22 +65,49 @@ class ProductController extends Controller
             ['name'=>'required'],
             ['name.required'=>'Bạn vui lòng nhập tên sản phẩm'],
             ['catid'=>'required'],
-            ['catid.required'=>'Bạn vui lòng nhập tên sản phẩm']
+            ['catid.required'=>'Bạn vui lòng chọn danh mục']
         );
-        $cat = Product::find($id);
-        $cat->name = $request->cat_name;
-        $cat->alias = changTitle($request->cat_name);
-        $cat->order = $request->order;
-        $cat->parent_id = $request->parentid;
-        $cat->keywords = $request->keyword;
-        $cat->description = $request->description;
-        $cat->status = $request->status;
-        $cat->save();
+        $product = Product::find($id);
+        $img_curr = 'resources/upload/'.$product->images;
+        if ($request->imager){
+         $file_name = $request->file('imager')->getClientOriginalName();
+            if($file_name != '' && $request->file('imager')){
+                $product->images = $file_name;
+                $request->file('imager')->move('resources/upload/',$file_name);
+                if (File::exists($img_curr)){
+                    File::delete($img_curr);
+                }
+            }
+        }
+        $product->name = $request->name;
+        $product->alias = changTitle($request->name);
+        $product->price =  $request->price;
+        $product->intro = $request->txtintro;
+        $product->content = $request->txtcontent;
+        $product->keywords = $request->keyword;
+        $product->descriptions =  $request->description;
+        $product->catid =  $request->catid;
+        $product->userid = 1;
+        $product->status =  $request->status;
+        $product->save();
+        $product_id = $product->id;
+        if ($request->hasFile('imgDetail')){
+            foreach($request->file('imgDetail') as $file){
+                $product_img = new Product_imgages();
+                if (isset($file)){
+                    $file_n = $file->getClientOriginalName();
+                    $product_img->image = $file_n;
+                    $product_img->product_id = $product_id;
+                    $file->move('resources/upload/details/',$file_n);
+                    $product_img->save();
+                }
+            }
+        }
         return redirect()->route('admin.product.list')->with(['flash_type'=>'success','flash_msg'=>'Cập nhật sản phẩm thành công!']);
     }
-    public function getDelImg($id){
-        if(Request::ajax()){
-            $idhinh = (int)Request::get('idimg');
+    public function getDelImg(Request $request,$id){
+        if($request->ajax()){
+            $idhinh = (int)$request->idimg;
             $img = Product_imgages::find($idhinh);
             if ($img !=''){
                 $imgage = 'resources/upload/details/'.$img->image;
