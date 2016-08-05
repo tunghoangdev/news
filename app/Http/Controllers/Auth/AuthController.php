@@ -9,6 +9,8 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
+use Session;
+
 
 class AuthController extends Controller
 {
@@ -86,4 +88,5 @@ class AuthController extends Controller
             return redirect()->back();
         }
     }
+    
 }
