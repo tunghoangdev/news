@@ -90,14 +90,13 @@ class ProductController extends Controller
         $product->userid = 1;
         $product->status =  $request->status;
         $product->save();
-        $product_id = $product->id;
         if ($request->hasFile('imgDetail')){
             foreach($request->file('imgDetail') as $file){
                 $product_img = new Product_imgages();
                 if (isset($file)){
                     $file_n = $file->getClientOriginalName();
                     $product_img->image = $file_n;
-                    $product_img->product_id = $product_id;
+                    $product_img->product_id = $id;
                     $file->move('resources/upload/details/',$file_n);
                     $product_img->save();
                 }

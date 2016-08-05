@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
 use App\User;
-use Validator;
+use App\Http\Requests;
+//use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use App\Http\Requests\LoginRequest;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -68,5 +70,20 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+    public function getLogin(){
+        return view('admin.login');
+    }
+    public function postLogin(LoginRequest $request){
+            $login = array(
+                'username' =>$request->txtUser,
+                'password' =>$request->txtPass,
+                'level' => 1
+            );
+        if (Auth::attempt($login)){
+            return redirect()->route('admin.category.list');
+        }else{
+            return redirect()->back();
+        }
     }
 }

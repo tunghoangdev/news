@@ -338,7 +338,7 @@ Purchase: http://wrapbootstrap.com
                                 </li>
                                 <!--/Theme Selector Area-->
                                 <li class="dropdown-footer">
-                                    <a href="login.html">
+                                    <a href="{!! url('auth/logout') !!}">
                                         Sign out
                                     </a>
                                 </li>
